@@ -64,4 +64,81 @@ document.addEventListener('DOMContentLoaded', () => {
     // Chama a função uma vez para não haver atraso e depois a cada segundo
     atualizaTempo(); 
     setInterval(atualizaTempo, 1000);
+    // --- Lógica do Quiz Romântico ---
+    const quizData = [
+        {
+            question: "Nossa viagem dos sonhos:",
+            options: ["Maldivas", "Grecia", "Japão", "Noruega"],
+            answer: 1
+        },
+        {
+            question: "Show que temos vontade de ir:",
+            options: ["Coldplay", "Embaixador", "Anitta", "Alok"],
+            answer: 1
+        },
+        {
+            question: "Sonhos para cumprir esse ano:",
+            options: ["Viajar para o exterior", "Correr uma meia maratona juntos", "Comprar um carro", "Fazer um curso de culinária"],
+            answer: 1
+        },
+        {
+            question: "O quanto o JV me ama?",
+            options: ["Mais que chocolate", "Daqui até o sol vezes quatrilhões", "Como um filme romântico", "Como pizza todo dia"],
+            answer: 1
+        }
+    ];
+
+    const quizContainer = document.getElementById('quiz-container');
+    const quizSubmit = document.getElementById('quiz-submit');
+    const quizResult = document.getElementById('quiz-result');
+
+    if (quizContainer) {
+        quizData.forEach((q, idx) => {
+            const div = document.createElement('div');
+            div.className = 'quiz-question';
+            div.innerHTML = `<strong>${q.question}</strong>`;
+            q.options.forEach((opt, oidx) => {
+                const label = document.createElement('label');
+                label.innerHTML = `<input type="radio" name="q${idx}" value="${oidx}"> ${opt}`;
+                div.appendChild(label);
+            });
+            quizContainer.appendChild(div);
+        });
+        quizSubmit.style.display = 'inline-block';
+    }
+
+    if (quizSubmit) {
+        quizSubmit.addEventListener('click', () => {
+            let score = 0;
+            quizData.forEach((q, idx) => {
+                const radios = document.querySelectorAll(`input[name='q${idx}']`);
+                radios.forEach((radio, oidx) => {
+                    // Remove marcador anterior
+                    let label = radio.parentElement;
+                    label.querySelectorAll('.quiz-marker').forEach(e => e.remove());
+                    // Adiciona marcador se foi respondido
+                    if (radio.checked) {
+                        if (oidx === q.answer) {
+                            score++;
+                            label.insertAdjacentHTML('beforeend', '<span class="quiz-marker quiz-correct">✔️</span>');
+                        } else {
+                            label.insertAdjacentHTML('beforeend', '<span class="quiz-marker quiz-wrong">❌</span>');
+                        }
+                    } else if (oidx === q.answer) {
+                        // Mostra qual era a resposta certa se errou
+                        label.insertAdjacentHTML('beforeend', '<span class="quiz-marker quiz-correct">✔️</span>');
+                    }
+                });
+            });
+            let msg = '';
+            if (score === quizData.length) {
+                msg = 'Parabéns! Você conhece muito bem nossa história! 💖';
+            } else if (score >= quizData.length - 1) {
+                msg = 'Quase perfeito! Você lembra de quase tudo! 😍';
+            } else {
+                msg = 'O importante é o amor! Vamos criar novas memórias juntos! 💌';
+            }
+            quizResult.textContent = `LINDA PERFEITA, você acertou ${score} de ${quizData.length}. ${msg}`;
+        });
+    }
 });

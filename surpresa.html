@@ -12,7 +12,7 @@
 <body>
     <div class="container">
         <header>
-            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/428MozzKK3TyqgrhJ59C0r?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/1iTXXdQfCTzs4D0c2MgWk2?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </header>
 
         <section id="fotos">
@@ -43,6 +43,70 @@
                 Cada um desses momentos na nossa galeria representa um passo na jornada que estamos construindo. Este cronômetro não marca apenas o tempo, mas a intensidade de cada segundo que passamos juntos. Que venham muitos outros dias, horas e sorrisos para somar. Te amo Lolis, vc é a minha maior certeza, amo estar contigo...vc é a minha 01.
             </p>
         </section>
+            <!-- Quiz Romântico -->
+            <section id="quiz">
+                <h2>Quiz Romântico 💘</h2>
+                <div id="quiz-container">
+                    <!-- Perguntas serão inseridas pelo JS -->
+                </div>
+                <button id="quiz-submit" style="display:none;">Ver Resultado</button>
+                <div id="quiz-result"></div>
+            </section>
+
+            <!-- Linha do Tempo do Casal -->
+            <section id="timeline">
+                <h2>Nossa História 🕰️</h2>
+                <div class="timeline-container">
+                    <div class="timeline-event">
+                        <img class="timeline-img" src="img/image.png" alt="Primeiro encontro" />
+                        <div>
+                            <div class="timeline-desc">Primeira vez que vc falou te amo</div>
+                        </div>
+                    </div>
+                    <div class="timeline-event">
+                        <img class="timeline-img" src="img/image copy.png" alt="Primeiro Dia dos Namorados" />
+                        <div>
+                            <div class="timeline-desc">Primeira corrida que acompanhei da lolis</div>
+                        </div>
+                    </div>
+                    <div class="timeline-event">
+                        <img class="timeline-img" src="img/image copy 6.png" alt="Viagem inesquecível" />
+                        <div>
+                           
+                            <div class="timeline-desc">Fomos no catarina juntos</div>
+                        </div>
+                    </div>
+                    <div class="timeline-event">
+                        <img class="timeline-img" src="img/image copy 5.png" alt="Oficialmente namorados" />
+                        <div>
+                            
+                            <div class="timeline-desc">Quando te dei a primeira rosa</div>
+                        </div>
+                    </div>
+                    <div class="timeline-event">
+                        <img class="timeline-img" src="img/image copy 4.png" alt="Oficialmente namorados" />
+                        <div>
+                            
+                            <div class="timeline-desc">A gente no rodeio do Fi de Fiote</div>
+                        </div>
+                    </div>
+                    <div class="timeline-event">
+                        <img class="timeline-img" src="img/image copy 3.png" alt="Oficialmente namorados" />
+                        <div>
+                            
+                            <div class="timeline-desc">Vc com o Felicio lindo do JV</div>
+                        </div>
+                    </div>
+                    <div class="timeline-event">
+                        <img class="timeline-img" src="img/image copy 2.png" alt="Oficialmente namorados" />
+                        <div>
+                            
+                            <div class="timeline-desc">O dia que te pedi em namoro hihi</div>
+                        </div>
+                    </div>
+                    <!-- Adicione mais eventos aqui -->
+                </div>
+            </section>
     </div>
     <script src="script.js"></script>
 </body>

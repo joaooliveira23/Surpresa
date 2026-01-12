@@ -53,8 +53,141 @@ section {
 #fotos { animation-delay: 0.2s; }
 #cronometro { animation-delay: 0.4s; }
 #texto { animation-delay: 0.6s; }
+#quiz { animation-delay: 0.8s; }
+#timeline { animation-delay: 1s; }
+
+/* Quiz Romântico - Estilo Melhorado */
+#quiz {
+  background: linear-gradient(135deg, #bb86fc22 0%, #ffb6b9 100%);
+  border-radius: 24px;
+  padding: 40px 24px;
+  box-shadow: 0 4px 24px rgba(187, 134, 252, 0.18);
+  margin-bottom: 48px;
+  border: 2px solid #bb86fc44;
+  position: relative;
+  overflow: hidden;
+}
+
+#quiz-container {
+  text-align: left;
+  margin: 0 auto 32px auto;
+  max-width: 520px;
+}
+
+#quiz-container .quiz-question {
+  margin-bottom: 28px;
+  padding: 18px 16px;
+  background: rgba(255,255,255,0.10);
+  border-radius: 12px;
+  box-shadow: 0 1px 8px rgba(187,134,252,0.08);
+  font-size: 1.15rem;
+  font-family: var(--body-font);
+  color: var(--primary-color);
+  border-left: 4px solid var(--accent-color);
+}
+
+#quiz-container label {
+  display: block;
+  margin-bottom: 10px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background 0.2s;
+  font-size: 1rem;
+}
+#quiz-container label:hover {
+  background: #bb86fc33;
+}
+#quiz-container input[type="radio"] {
+  accent-color: var(--accent-color);
+  margin-right: 8px;
+  transform: scale(1.2);
+}
+
+#quiz-submit {
+  background: linear-gradient(90deg, #bb86fc 60%, #ffb6b9 100%);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 12px 32px;
+  font-size: 1.15rem;
+  cursor: pointer;
+  margin-top: 18px;
+  font-family: var(--heading-font);
+  font-weight: bold;
+  box-shadow: 0 2px 8px #bb86fc44;
+  transition: background 0.2s, transform 0.2s;
+}
+#quiz-submit:hover {
+  background: linear-gradient(90deg, #ffb6b9 0%, #bb86fc 100%);
+  transform: scale(1.05);
+}
+
+#quiz-result {
+  /* Marcadores de resposta do quiz */
+  .quiz-marker {
+    margin-left: 10px;
+    font-size: 1.2em;
+    vertical-align: middle;
+    font-weight: bold;
+    transition: color 0.2s;
+  }
+  .quiz-correct {
+    color: #4caf50;
+    text-shadow: 0 0 6px #bb86fc44;
+  }
+  .quiz-wrong {
+    color: #ff1744;
+    text-shadow: 0 0 6px #ffb6b9;
+  }
+  margin-top: 24px;
+  font-size: 1.3rem;
+  color: #ffb6b9;
+  font-weight: bold;
+  text-shadow: 0 2px 8px #bb86fc44;
+  animation: quizResultFade 1s;
+}
+
+@keyframes quizResultFade {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
 
 /* Carrossel Moderno */
+.timeline-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+  margin: 0 auto;
+  max-width: 500px;
+}
+.timeline-event {
+  background: rgba(187,134,252,0.10);
+  border-left: 4px solid var(--accent-color);
+  padding: 12px 18px;
+  border-radius: 8px;
+  box-shadow: 0 1px 8px rgba(187,134,252,0.08);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.timeline-img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 1px 6px rgba(187,134,252,0.15);
+  border: 2px solid var(--accent-color);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+.timeline-img:hover {
+  transform: scale(1.7) translateY(-10px);
+  z-index: 2;
+  box-shadow: 0 4px 24px #bb86fc88, 0 0 0 4px #fff2;
+}
+}
 .carousel {
   position: relative;
   width: 100%;
@@ -133,6 +266,17 @@ section {
 }
 
 /* RESPONSIVIDADE (Mobile-First) */
+@media (max-width: 768px) {
+  .timeline-event {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .timeline-img {
+    width: 50px;
+    height: 50px;
+  }
+}
 @media (max-width: 768px) {
   h2 { font-size: 2rem; }
   
